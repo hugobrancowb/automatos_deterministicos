@@ -1,0 +1,5 @@
+# Arquivos ignorados
+*.x
+*.sh
+.vscode
+*.orig
