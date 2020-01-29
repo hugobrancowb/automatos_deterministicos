@@ -1,58 +1,3 @@
-/***************************************************************************
- *   ex10.c                                 Version 20160618.013215      *
- *                                                                         *
- *   Converte AFD, AFND e ER                                               *
- *   Copyright (C) 2016         by Ruben Carlo Benante                     *
- ***************************************************************************
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; version 2 of the License.               *
- *                                                                         *
- *   This program is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
- *   GNU General Public License for more details.                          *
- *                                                                         *
- *   You should have received a copy of the GNU General Public License     *
- *   along with this program; if not, write to the                         *
- *   Free Software Foundation, Inc.,                                       *
- *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
- ***************************************************************************
- *   To contact the author, please write to:                               *
- *   Ruben Carlo Benante                                                   *
- *   Email: rcb@beco.cc                                                    *
- *   Webpage: http://www.beco.cc                                           *
- *   Phone: +55 (81) 3184-7555                                             *
- ***************************************************************************/
-
-/* ---------------------------------------------------------------------- */
-/**
- * @file ex10.c
- * @ingroup Yoda
- * @brief Converte AFD, AFND e ER
- * @details This program really do a nice job as a template, and template only!
- * @version 20180710
- * @date 2018-07-10
- * @author Ruben Carlo Benante <<rcb@beco.cc>>
- * @par Webpage
- * <<a href="http://www.beco.cc">www.beco.cc</a>>
- * @copyright (c) 2016 GNU GPL v2
- * @note This program is free software: you can redistribute it
- * and/or modify it under the terms of the
- * GNU General Public License as published by
- * the Free Software Foundation version 2 of the License.
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * You should have received a copy of the GNU General Public License
- * along with this program.
- * If not, write to the Free Software Foundation, Inc.,
- * 59 Temple Place - Suite 330, Boston, MA. 02111-1307, USA.
- * Or read it online at <<http://www.gnu.org/licenses/>>.
- *
- */
-
 /*
  * Instrucoes para compilar:
  *   $gcc ex10.c -o ex10.x -Wall
@@ -75,29 +20,6 @@
 /* includes, definitions, etc., that cannot be in ex10.h */
 
 #include "ex10.h" /* To be created for this template if needed */
-
-/* ---------------------------------------------------------------------- */
-/**
- * @ingroup Group yoda
- * @brief funcao main do conversor
- * @funcao main a seguir abriga as flags e entradas inciais para o funcionamento do programa.
- *
- * @param[in] argc Argument counter
- * @param[in] argv Argument strings (argument values)
- *
- * @retval 0 If succeed (EXIT_SUCCESS).
- * @retval 1 Or another error code if failed.
- *
- * @par Example
- * @code
- *    $./ex10 -h
- * @endcode
- *
- * @author group2 - yoda
- * @version 20180710
- * @date 2018-07-10
- *
- */
 int main(int argc, char *argv[])
 {
     int opt; /* return from getopt() */
@@ -118,9 +40,6 @@ int main(int argc, char *argv[])
         {
             case 'h':
                 help();
-                break;
-            case 'V':
-                copyr();
                 break;
             case 'v':
                 verb++;
@@ -188,17 +107,6 @@ int main(int argc, char *argv[])
     return EXIT_SUCCESS;
 }
 
-/* ---------------------------------------------------------------------- */
-/**
- * @ingroup Group yoda
- * @brief Inicializa a transformacao de afd para er
- * @details Pede ao usuario que ele digite uma afd para conversao
- * @return Void
- * @author Hugo Branco Wanderley Barbosa
- * @version 20160618.013215
- * @date 2018-07-03
- *
- */
 void afdtoer(void)
 {
     printf("# # # [ AFD -> ER ] # # #\n");
@@ -214,17 +122,6 @@ void afdtoer(void)
     exit(EXIT_SUCCESS);
 }
 
-/* ---------------------------------------------------------------------- */
-/**
- * @ingroup Group yoda
- * @brief Inicializa a transformacao de afnd para afd
- * @details Pede ao usuario que ele digite uma afnd para conversao
- * @return Void
- * @author Hugo Branco Wanderley Barbosa
- * @version 20160618.013215
- * @date 2018-07-03
- *
- */
 void afndtoafd(void)
 {
     printf("# # # [ AFND -> AFD ] # # #\n");
@@ -241,17 +138,6 @@ void afndtoafd(void)
     exit(EXIT_SUCCESS);
 }
 
-/* ---------------------------------------------------------------------- */
-/**
- * @ingroup Group yoda
- * @brief Confere se ha algum erro
- * @details Checa a presenca de caracteres invalidos
- * @return Void
- * @author Hugo Branco Wanderley Barbosa
- * @version 20160618.013215
- * @date 2018-07-03
- *
- */
 void checkstring(char entrada[SBUFF])
 {
     int i = 0;
@@ -268,17 +154,6 @@ void checkstring(char entrada[SBUFF])
     }
 }
 
-/* ---------------------------------------------------------------------- */
-/**
- * @ingroup Group yoda
- * @brief Inicializa a transformacao de er para afnd
- * @details Pede ao usuario que ele digite uma er para conversao
- * @return Void
- * @author Hugo Branco Wanderley Barbosa
- * @version 20160618.013215
- * @date 2018-07-03
- *
- */
 void ertoafnd(void)
 {
     char entrada[SBUFF]; /* armazena toda string que compõe a expressao regular */
@@ -301,17 +176,6 @@ void ertoafnd(void)
     exit(EXIT_SUCCESS);
 }
 
-/* ---------------------------------------------------------------------- */
-/**
- * @ingroup Group yoda
- * @brief Realiza de fato a conversao de afd para er
- * @details Faz a conversao de afd para er usando os dados entrados pelo usuario
- * @return Void
- * @author Hugo Branco Wanderley Barbosa
- * @version 20160618.013215
- * @date 2018-07-03
- *
- */
 void conversaoafder(struct automato *afd)
 {
     state = -1;
@@ -404,17 +268,6 @@ void conversaoafder(struct automato *afd)
     freeAuto(afd);
 }
 
-/* ---------------------------------------------------------------------- */
-/**
- * @ingroup Group yoda
- * @brief Realiza de fato a conversao de er para afnd
- * @details Faz a conversao de er para afnd usando os dados entrados pelo usuario
- * @return Void
- * @author Hugo Branco Wanderley Barbosa
- * @version 20160618.013215
- * @date 2018-07-03
- *
- */
 void conversaoerafnd(char entrada[SBUFF])
 {
     struct automato *afnd = NULL; /* Declaramos a nova quintupla. */
@@ -428,16 +281,6 @@ void conversaoerafnd(char entrada[SBUFF])
     exit(EXIT_SUCCESS);
 }
 
-/**
- * @ingroup Group yoda
- * @brief salva um valor numerico em uma variavel global
- * @ esta funcao vai salvar numa variavel global o valor numerico do maior estado do automato
- * @return void
- * @author group yoda
- * @version 20160618.013215
- * @date 2018-07-10
- *
- */ 
 void defineState(struct delta *afndD)
 {
     struct delta *head = afndD;
@@ -457,16 +300,6 @@ void defineState(struct delta *afndD)
     afndD = head;
 }
 
-/**
- * @ingroup Group yoda
- * @brief realiza a verificao dos caracters
- * @ esta funcao vai realizar a verificao da entrada que o usuario deu
- * @return void
- * @@author group yoda
- * @version 20160618.013215
- * @date 2018-07-10
- *
- */
 void entradainvalida(void)
 {
     printf("Algum caractere digitado nao eh valido para este programa.\n");
@@ -475,16 +308,7 @@ void entradainvalida(void)
 
     exit(-1);
 }
-/**
- * @ingroup group yoda
- * @brief funcao que ler arquivo .txt com er
- * @ esta funcao vai ler um arquivo de entrada que contem uma er
- * @return void
- * @author group yoda
- * @version 20160618.013215
- * @date 2018-07-10
- *
- */
+
 void fileer(char sfile[SBUFF])
 {
     /**********************/
@@ -510,16 +334,6 @@ void fileer(char sfile[SBUFF])
     conversaoerafnd(entrada);
 }
 
-/**
- * @ingroup group yoda
- * @brief funcao que imprime o automato
- * @ esta funcao ficou responsavel por imprimir o automato
- * @return void
- * @author group yoda
- * @version 20160618.013215
- * @date 2018-07-10
- *
- */
 void printAuto(struct automato *autom)
 {
     printf("#K\n%hu\n", autom -> K);
@@ -565,17 +379,6 @@ void printAuto(struct automato *autom)
 
     return;
 }
-
-
-/**
- * @ingroup group yoda 
- * @brief funcao define o alfabeto 
- * @details funcao define o alfabeto do automato 
- * @return char 
- * @version 20160618013215
- * @date 2018-07-10
- *
- */
 
 char alfabeto(struct delta *aux)
 {
@@ -1068,17 +871,6 @@ struct automato *conversao(struct automato *afnd)
     return afnd;
 }
 
-/**
- * @ingroup Group yoda
- * @brief faz a conversao de uma expressao regular para afnd
- * @details le uma string (er) e faz a transofrmaçao para uma quintupla (afnd)
- * @return struct automato
- * @author Hugo Branco Wanderley Barbosa 
- * @version 20160618.013215
- * @date 2018-07-10
- *
- */
-
 struct automato *criarQuintupla(char entrada[SBUFF]) /* Cabeca para ler a string de entrada. */
 {
     struct automato *afnd = NULL;
@@ -1186,17 +978,6 @@ struct automato *criarQuintupla(char entrada[SBUFF]) /* Cabeca para ler a string
 
     return afnd;
 }
-
-/**
- * @ingroup Group yoda
- * @brief cria uma transicao entre dois estados ao ler uma letra
- * @details le uma string e cria dois novos estados e atualiza os estados finais e iniciais
- * @return struct automato
- * @author Hugo Branco Wanderley Barbosa
- * @version 20160618.013215
- * @date 2018-07-10
- *
- */
 
 struct automato *criarUnidade(char letra[SBUFF])
 {
@@ -2417,17 +2198,6 @@ struct final *removeFinal(unsigned short int oldE, struct final *afndF)
     return afndF ;
 }
 
-/* ---------------------------------------------------------------------- */
-/**
- * @ingroup GroupUnique
- * @brief Prints help information and exit
- * @details Prints help information (usually called by opt -h)
- * @return Void
- * @author Ruben Carlo Benante
- * @version 20160618.013215
- * @date 2016-06-18
- *
- */
 void help(void)
 {
     IFDEBUG("help()");
@@ -2443,79 +2213,12 @@ void help(void)
     printf("\t-f FILENAME\n\t\tUtilizada como flag secundaria (ou seja, após -n, -d ou -e),\n\t\tfaz a entrada de um arquivo.\n");
     printf("\nExit status:\n\t0 if ok.\n\t1 some error occurred.\n");
     printf("\nTodo:\n\tLong options not implemented yet.\n");
-    printf("\nAuthor:\n\tWritten by %s <%s>\n", "Ruben Carlo Benante", "rcb@beco.cc");
     exit(EXIT_FAILURE);
 }
 
-/* ---------------------------------------------------------------------- */
-/**
- * @ingroup GroupUnique
- * @brief Prints version and copyright information and exit
- * @details Prints version and copyright information (usually called by opt -V)
- * @return Void
- * @author Ruben Carlo Benante
- * @version 20160618.013215
- * @date 2016-06-18
- *
- */
-void copyr(void)
-{
-    IFDEBUG("copyr()");
-    printf("%s - Version %s\n", "ex10", VERSION);
-    printf("\nCopyright (C) %d %s <%s>, GNU GPL version 2 <http://gnu.org/licenses/gpl.html>. This  is  free  software: you are free to change and redistribute it. There is NO WARRANTY, to the extent permitted by law. USE IT AS IT IS. The author takes no responsability to any damage this software may inflige in your data.\n", 2016, "Ruben Carlo Benante", "rcb@beco.cc");
-    if(verb > 3) printf("copyr(): Verbose: %d\n", verb); /* -vvvv */
-    exit(EXIT_FAILURE);
-}
-
-/* ---------------------------------------------------------------------- */
-/**
- * @ingroup GroupUnique
- * @brief This function initializes some operations before start
- * @details Details to be written in
- * multiple lines
- *
- * @pre You need to call foo() before calling this function
- *
- * @param[in] i Input parameter that does bla
- * @param[out] o Parameter that outputs ble
- * @param[in,out] z The @a z variable is used as input and output
- *
- * @retval 0 Returned when bli
- * @retval 1 Error code: function returned blo
- *
- * @par Example
- * @code
- *    if(x == funcexample(i, o, z))
- *       printf("And that is it\n");
- * @endcode
- *
- * @return Void
- *
- * @warning Be carefull with blu
- * @todo Need to implement it. Its empty now. This doxygen tags are overwhelming.
- * Mandatory tags are: ingroup, brief, details, param, return, author and date.
- * The others are optional.
- *
- * @deprecated This function will be deactivated in version +11
- * @see help()
- * @see copyr()
- * @bug There is a bug with x greater than y
- * @note You can read more about it at <<a href="http://www.beco.cc">www.beco.cc</a>>
- *
- * @author Ruben Carlo Benante
- * @version 20160618.013215
- * @date 2016-06-18
- * @copyright Use this tag only if not the same as the whole file
- *
- */
 void ex10_init(void)
 {
     IFDEBUG("ex10_init()");
     /* initialization */
     return;
 }
-
-/* ------------------------------------------------------------------ */
-/* C config for Vim modeline                                          */
-/* vi: set ai cin et ts=4 sw=4 tw=0 wm=0 fo=croqltn :                 */
-/* Template by Dr. Beco <rcb at beco dot cc>  Version 20160614.152950 */
