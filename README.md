@@ -1,5 +1,5 @@
 # Programa AUTOMAX 
-Avaliação para a disciplina de Matemática Discreta na Universidade de Pernambuco em 2018.1 sob a orientação do professor Ruben Carlo Benante. O objetivo é realizar conversões entre autômatos finitos determinísticos e não determinísticos e expressões regulares.
+Avaliação para a disciplina de Matemática Discreta na Universidade de Pernambuco em 2018.1 sob a orientação do professor Ruben Carlo Benante. O objetivo é realizar conversões entre autômatos finitos determinísticos e não determinísticos e expressões regulares utlizando a linguagem C.
 
 ## Converte AFND->AFD->ER->AFND
 
